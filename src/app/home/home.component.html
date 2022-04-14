@@ -1,0 +1,69 @@
+
+<div style="height: 100%;">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <!-- <span>My App</span> -->
+      <button (click)="drawer.toggle()" mat-icon-button class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="example-spacer">Invintory System</span>
+      <ul class="nav navbar-nav navbar-right">
+
+
+            <li id="li"><a (click)="signOut()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+    </mat-toolbar-row>
+
+  </mat-toolbar>
+</div>
+<div style="height: 100%;">
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+
+      <mat-accordion class="app-nav-accordion">
+
+        <mat-nav-list>
+          <a mat-list-item  routerLink='/home/brands'>Brands</a>
+          <!-- <h3 matSubheader>Section One</h3> -->
+          <a mat-list-item routerLink='/home/category'>Category</a>
+          <a mat-list-item routerLink='/home/stores'>Stores</a>
+          <a mat-list-item routerLink='/home/attributes'>Attribute</a>
+          <mat-expansion-panel class="mat-elevation-z0">
+            <mat-expansion-panel-header >
+                <mat-panel-title>Products</mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+
+                <a mat-list-item routerLink='/home/products'><i class="glyphicon glyphicon-plus"></i>&nbsp;  Add Product</a>
+                <a mat-list-item routerLink='/home/productlist'><i class="glyphicon glyphicon-list"></i>&nbsp;  Product List</a>
+            </mat-nav-list>
+        </mat-expansion-panel>
+          <mat-expansion-panel class="mat-elevation-z0">
+            <mat-expansion-panel-header >
+                <mat-panel-title>Orders</mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+
+                <a mat-list-item routerLink='/home/orders'><i class="glyphicon glyphicon-plus"></i>&nbsp;  Add Orders</a>
+                <a mat-list-item routerLink='/home/manageorder'><i class="glyphicon glyphicon-list"></i>&nbsp;  Manage Orders</a>
+            </mat-nav-list>
+        </mat-expansion-panel>
+          <a mat-list-item routerLink='/home/company'>Company</a>
+     
+        </mat-nav-list>
+
+      </mat-accordion>
+
+
+    </mat-drawer>
+
+
+<router-outlet></router-outlet>
+
+  </mat-drawer-container>
+</div>
+
+
+
+

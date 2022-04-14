@@ -1,0 +1,76 @@
+<div class="container" style="margin-left: 50px ;">
+
+  <div class="row">
+      <div class="col-lg-5 col-sm-5">
+
+          <h2 style="margin-top: 20px;">Manage Orders</h2>
+      </div>
+
+
+  </div>
+  <div class="row"  *ngIf="isAlert">
+    <div class="col-lg-12 col-xs-4" >
+        <div class="alert" [ngClass]="isSucceed==true?'alert-success':'alert-danger'">
+            <a  class="close" data-dismiss="alert">&times;</a>
+            {{message}}
+
+        </div>
+    </div>
+</div>
+
+  <div class="row" style="margin-top:20px">
+      <div class="col-lg-1 col-xs-1">
+       <input type="button" class="btn btn-prime" id="btn_add_order" routerLink="/home/orders"
+        style="background-color: #3f51b5; color: white;" value="Add Order" >
+      </div>
+      <div class="input-group col-sm-4 col-xs-offset-8" style="width: max-content">
+        <input type="search" class="form-control col-sm-1 col-lg-1" #txtsearch>
+        <span class="input-group-btn">
+        <button class="btn btn-primary" (click)="search()" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true">
+        </span></button>
+        </span>
+        </div>
+  </div>
+
+
+  <div class="row ContainerBody" style="margin-top:20px;margin-left:0px">
+
+      <div class="col-lg-12 col-xs-12">
+        <div class="col-lg-12 col-xs-12 containerHeader">Mange Order</div>
+          <table class="table table-bordered" id="tbl_order" name="tbl_order">
+            <thead>
+              <tr>
+
+                <th>Customer Name</th>
+                <th>Customer Phone</th>
+                <th>Net Amount</th>
+                <th>Product</th>
+                <th>Action</th>
+
+              </tr>
+            </thead>
+              <tbody>
+                  <tr *ngFor="let item of liOrder">
+                    <td>{{item.customer_name}}</td>
+                    <td>{{item.customer_phone}}</td>
+                    <td>{{item.net_amount}}</td>
+                    <td>{{item.product.name}}</td>
+                    <td>
+                      <a  (click)="Edit(item.id)" class="btn btn-primary a-btn-slide-text">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        <span><strong>Edit</strong></span>
+                    </a>
+                    <a (click)="remove(item.id)" class="btn btn-danger a-btn-slide-text">
+                       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        <span><strong>Delete</strong></span>
+                    </a>
+                    </td>
+
+                  </tr>
+
+              </tbody>
+          </table>
+      </div>
+  </div>
+
+</div>

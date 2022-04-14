@@ -1,0 +1,119 @@
+<div class="container ">
+
+  <div class="row ">
+    <h2 style="margin-top: 20px;">Product</h2>
+  </div>
+  <div class="row" *ngIf="isAlert">
+    <div class="col-lg-12 col-xs-4">
+      <div class="alert" [ngClass]="isSucceed==true?'alert-success':'alert-danger'">
+        <a class="close" data-dismiss="alert">&times;</a>
+        {{message}}
+
+      </div>
+    </div>
+  </div>
+  <div class="row ContainerBody" style="margin-top:20px;margin-left:0px;">
+
+    <form #f="ngForm">
+      <div class="row" style="margin-left:0px;margin-right:0px">
+        <div class="col-lg-12 col-xs-12" style="margin-top:10px">
+          <label for="img1" class="btn btn-primary">Upload Image
+            <input type="file" class="glyphicon glyphicon-folder-open" id="img1" (change)="fileSelected($event)"
+              name="picture" ngModel style="display: none;" /></label>
+        </div>
+      </div>
+      <div class="row" style="margin-left:0px;margin-right:0px">
+        <div class="col-lg-12 col-xs-12" style="margin-top:10px">
+          <img name="img_picture"[style.display]="isVisible ? 'block' : 'none'" [src]="filePath" style="height:100px;width:100px;" #img_picture />
+        </div>
+      </div>
+
+      <div class="row" style="margin-left:0px;margin-right:0px">
+        <div class="form-group col-lg-12 col-xs-12" style="margin-top:20px;">
+          <label for="txt_name_Product">Product Name</label>
+          <input type="text" class="form-control" placeholder="Enter Product name" name="txt_name_Product" ngModel />
+        </div>
+      </div>
+      <div class="row" style="margin-left:0px;margin-right:0px">
+        <div class="form-group col-lg-12 col-xs-12" style="margin-top:20px;">
+          <label for="txt_sku_Product">Product sku</label>
+          <input type="text" class="form-control" placeholder="Enter sku" name="txt_sku_Product" required ngModel />
+        </div>
+      </div>
+      <div class="row" style="margin-left:0px;margin-right:0px">
+        <div class="form-group col-lg-12 col-xs-12" style="margin-top:20px;">
+          <label for="txt_price_Product">Price</label>
+          <input type="text" class="form-control" placeholder="Enter price" name="txt_price_Product" required ngModel />
+        </div>
+      </div>
+      <div class="row" style="margin-left:0px;margin-right:0px">
+        <div class="form-group col-lg-12 col-xs-12" style="margin-top:20px;">
+          <label for="txt_qty_Product">QTY</label>
+          <input type="text" class="form-control" placeholder="Enter QTY" name="txt_qty_Product" required ngModel />
+        </div>
+      </div>
+      <div class="row" style="margin-left:0px;margin-right:0px">
+        <div class="form-group col-lg-12 col-xs-12" style="margin-top:20px;">
+          <label for="txt_area_desc_product">Description</label>
+          <textarea class="form-control" name="txt_description_Product" rows="3" ngModel></textarea>
+        </div>
+      </div>
+      <div class="row" style="margin-left:0px;margin-right:0px">
+        <div class="form-group col-lg-12 col-xs-12" style="margin-top:20px;">
+          <label for="ddl_color_product">Color</label>
+          <select class="form-control" name="ddl_color_product" ngModel>
+            <option *ngFor="let item of liColor" [value]="item.id">{{item.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row" style="margin-left:0px;margin-right:0px">
+        <div class="form-group col-lg-12 col-xs-12" style="margin-top:20px;">
+          <label for="ddl_size_product">Size</label>
+          <select class="form-control" name="ddl_size_product" ngModel>
+            <option *ngFor="let item of liSize" [value]="item.id">{{item.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row" style="margin-left:0px;margin-right:0px">
+        <div class="form-group col-lg-12 col-xs-12" style="margin-top:20px;">
+          <label for="ddl_brand">Brands</label>
+          <select class="form-control" name="ddl_brand" ngModel>
+            <option *ngFor="let item of liBrand" [value]="item.id">{{item.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row" style="margin-left:0px;margin-right:0px">
+        <div class="form-group col-lg-12 col-xs-12" style="margin-top:20px;">
+          <label for="ddl_category">Category</label>
+          <select class="form-control" name="ddl_category" ngModel>
+            <option *ngFor="let item of liCategory" [value]="item.id">{{item.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row" style="margin-left:0px;margin-right:0px">
+        <div class="form-group col-lg-12 col-xs-12" style="margin-top:20px;">
+          <label for="ddl_store">Store</label>
+          <select class="form-control" name="ddl_store" ngModel>
+            <option *ngFor="let item of liStore" [value]="item.id">{{item.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row" style="margin-left:0px;margin-right:0px">
+        <div class="form-group col-lg-12 col-xs-12" style="margin-top:20px;">
+          <label for="ddl_store_product">Availability</label>
+          <select class="form-control" name="ddl_availability_product" ngModel>
+            <option value="0">Yes</option>
+            <option value="1">No</option>
+          </select>
+        </div>
+      </div>
+    </form>
+    <div class="row" style="margin-left:0px;margin-right:0px">
+      <div class="col-lg-4 col-xs-7">
+        <input type="button" value="Save Changes" (click)="save()" id="btn_save_product" class="btn btn-primary" />
+        <input type="button" routerLink="/home/productlist" value="Back" id="btn_back_product" class="btn btn-default"
+          style="margin-left: 10px;" />
+      </div>
+    </div>
+  </div>
+</div>

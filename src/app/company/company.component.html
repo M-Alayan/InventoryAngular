@@ -1,0 +1,82 @@
+<div class="container ">
+
+  <div class="row ">
+      <div class="col-lg-5 col-sm-5">
+        <h2 style="margin-top: 20px;">Add Company</h2>
+      </div>
+  </div>
+
+
+  <div class="row ContainerBody" style="margin-top:20px;margin-left:0px">
+    <div class="row"  *ngIf="isAlert">
+      <div class="col-lg-12 col-xs-4" >
+          <div class="alert" [ngClass]="isSucceed==true?'alert-success':'alert-danger'">
+              <a  class="close" data-dismiss="alert">&times;</a>
+              {{message}}
+
+          </div>
+      </div>
+  </div>
+      <div class="col-lg-12 col-xs-12" style="margin-top:20px">
+          <form #f="ngForm">
+              <div class="row">
+                  <div class="form-group" style="margin-left:3px">
+                      <label for="txt_name_company">Company Name</label>
+                      <input type="text" class="form-control" placeholder="Enter Company Name" name="txt_name_company" required ngModel/>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="form-group" style="margin-left:3px">
+                      <label for="txt_vat_company">Vat Charge (%)</label>
+                      <input type="text" class="form-control" placeholder="Enter Vat Charge (%)" name="txt_vat_company"required ngModel />
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="form-group" style="margin-left:3px">
+                      <label for="txt_address_company">Address</label>
+                      <input type="text" class="form-control" placeholder="Enter Address" name="txt_address_company" ngModel />
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="form-group" style="margin-left:3px">
+                      <label for="txt_phone_company">Phone</label>
+                      <input type="text" class="form-control" placeholder="Enter Phone" name="txt_phone_company" ngModel/>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="form-group" style="margin-left:3px">
+                      <label for="txt_country_company">Country</label>
+                      <select class="form-control" name="txt_country_company" required ngModel>
+                          <option *ngFor="let item of liCountry" [value]="item.id" >{{item.name}}</option>
+                      </select>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="form-group" style="margin-left:3px">
+                      <label for="txt_area_message_company">Message</label>
+                      <textarea class="form-control" name="txt_area_message_company" rows="3" ngModel required></textarea>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="form-group" style="margin-left:3px">
+                      <label for="ddl_currency_com">Currency</label>
+                      <select class="form-control" name="ddl_currency_company" ngModel>
+                          <option *ngFor="let item of liCurancy" [value]="item.id">{{item.name}}</option>
+                      </select>
+                  </div>
+              </div>
+          </form>
+      </div>
+      <div class="col-sm-1 col-xs-offset-10">
+          <input type="button" (click)="save()" value="Save Changes" id="btn_save_company" class="btn btn-primary" style="margin-bottom: 30px;"/>
+      </div>
+             <div></div>
+  </div>
+
+</div>

@@ -1,1 +1,362 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+    DEMO STYLE
+*/
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #dbdee0;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.7em;
+  color: #999;
+}
+
+
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.navbar {
+  padding: 15px 10px;
+  background: black;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 40px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+  box-shadow: none;
+  outline: none !important;
+  border: none;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px dashed #ddd;
+  margin: 40px 0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+#sidebar {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  z-index: 999;
+  background: black;
+  color: #fff;
+  transition: all 0.3s;
+  overflow: auto;
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: black;
+  position: fixed;
+  max-height: 68px;
+}
+
+#sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid black;
+}
+
+#sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+#sidebar ul li a:hover {
+  color: black;
+  background: #fff;
+}
+
+#sidebar ul li.active>a {
+  color: #fff;
+  background: black;
+}
+
+/*#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #5b8cb7;
+}*/
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: black;
+}
+
+ul.CTAs {
+  padding: 20px;
+}
+
+ul.CTAs a {
+  text-align: center;
+  font-size: 0.9em !important;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+a.download {
+  background: #fff;
+  color: #273643;
+}
+
+a.article,
+a.article:hover {
+  background: #6d7fcc !important;
+  color: #fff !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+  width: calc(100% - 250px);
+  padding: 40px;
+  min-height: 100vh;
+  transition: all 0.3s;
+  /* position: fixed;
+    position: absolute;
+    top: 0;
+    right: 0; */
+}
+
+#content.active {
+  width: 100%;
+}
+
+
+/* ---------------------------------------------------
+    My Styles
+----------------------------------------------------- */
+.ContainerBody {
+  margin-left: 5%;
+  margin-right: 5%;
+  max-width: 90%;
+  background: #fafafa;
+  border-radius: 10px;
+  min-height: 300px;
+}
+
+.containerHeader {
+  background-color: #3f51b5;
+  padding: 8px;
+  color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  /* margin-bottom: 10px; */
+}
+
+.DetailsBox {
+  border: 2px solid #273643;
+  min-height: 300px;
+  background-color: #fafafa;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 0px;
+}
+
+.DetailsHeader {
+  background-color: #dbdee0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  min-height: 45px;
+  border-bottom: 2px solid #273643;
+}
+
+
+.required .control-label:after {
+  content: "*";
+  color: red;
+}
+
+label {
+  font-size: 14px;
+}
+
+.GridList {
+  width: 100%;
+  text-align: center;
+}
+
+.GridList thead {
+  background-color: #dbdee0;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(255, 246, 246, 0.72);
+}
+
+.bg-light {
+  background-color: #dbdee0 !important;
+}
+
+/* #sidebarCollapse {
+  color: #2b3e4e;
+} */
+
+.dropdown-menu li:hover {
+  color: #7386D5;
+  background: #fff;
+}
+
+.AccountSubMenu {
+  width: auto;
+  color: white;
+  background: #273643;
+  padding: 5px;
+  font-size: 13px;
+  min-width: 7rem;
+}
+
+.btn-primary {
+  background-color: #273643;
+  border-color: #273643;
+}
+
+.btn-WebGrid {
+  margin-top: 4px;
+  border-radius: 10px;
+  min-width: 35px;
+}
+
+.mbxs,
+.margin-bottom-xs {
+  margin-bottom: 5px;
+}
+
+.btnStyle {
+  cursor: pointer !important;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -250px;
+  }
+
+  #sidebar.active {
+    margin-left: 0;
+  }
+
+  #content {
+    width: 100%;
+  }
+
+  #content.active {
+    width: calc(100% - 250px);
+  }
+
+  #sidebarCollapse span {
+    display: none;
+  }
+
+  .btn {
+    background-color: #273643;
+  }
+}
+
+.example-sidenav{
+background-color: #3f51b5 !important;
+
+}
+
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.mat-list-base .mat-list-item .mat-list-item-content{
+  color:#fff;
+}
+.mat-expansion-indicator::after{
+  color: #fff;
+}
+.mat-expansion-panel-header-title{
+  color: #fff;
+}
+
+
+.mat-expansion-panel-header {
+  background-color: #3f51b5 !important;
+}
+.btn-primary{
+  background-color: #3f51b5;
+   color: white;
+}
+.btn-primary:hover{
+  border-color: #0767bb;
+}
+.login{
+  margin-top: 50px;
+}
+a.btn:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+a.btn {
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+}
+

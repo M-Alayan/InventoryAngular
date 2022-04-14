@@ -1,0 +1,170 @@
+<div class="container ">
+
+  <div class="row ">
+
+      <h2 style="margin-top: 20px;">Orders</h2>
+  </div>
+  <div class="row"  *ngIf="isAlert">
+    <div class="col-lg-12 col-xs-4" >
+        <div class="alert" [ngClass]="isSucceed==true?'alert-success':'alert-danger'">
+            <a  class="close" data-dismiss="alert">&times;</a>
+            {{message}}
+
+        </div>
+    </div>
+</div>
+  <div class="row ContainerBody" style="margin-top:20px;margin-left:0px">
+      <form #f1="ngForm">
+          <div class="row" style="margin-top:10px;margin-left:0px">
+              <div class="col-lg-12 col-xs-12 " style="font-weight: bold;">Add Order</div>
+              <input type="hidden" value="" name="bill" />
+
+
+          </div>
+      </form>
+      <div class="row">
+          <div class="col-lg-2 col-xs-2 col-lg-offset-10 col-xs-offset-10">
+              <label id="lbl1"></label>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-2 col-xs-2 col-lg-offset-10 col-xs-offset-10">
+              <label id="lbl_date_time_order"></label>
+          </div>
+      </div>
+      <form #f="ngForm">
+          <div class="col-lg-6 col-xs-6">
+              <input type="hidden" />
+
+              <div class="row">
+                  <div class="col-lg-4 col-xs-4">
+                      <label>Customer Name</label>
+                  </div>
+                  <div class="col-lg-6 col-xs-6">
+                      <input type="text" class="form-control" required placeholder="Enter Customer Name" name="txt_name_order"
+                          ngModel />
+                  </div>
+              </div>
+
+              <div class="row" style="margin-top:10px">
+                  <div class="col-lg-4 col-xs-4">
+                      <label>Customer Address</label>
+                  </div>
+                  <div class="col-lg-6 col-xs-6">
+                      <input type="text" class="form-control" required placeholder="Enter Customer Address"
+                          name="txt_address_order" ngModel />
+                  </div>
+              </div>
+
+              <div class="row" style="margin-top:10px">
+                  <div class="col-lg-4 col-xs-4">
+                      <label>Customer Phone</label>
+                  </div>
+                  <div class="col-lg-6 col-xs-6">
+                      <input type="text" class="form-control" placeholder="Enter Customer Phone Number"
+                          name="txt_phone_order" ngModel pattern="^07(7|8|9)\d{7}" required />
+                  </div>
+              </div>
+
+          </div>
+
+          <div class="col-lg-6 col-xs-6">
+
+          </div>
+
+          <div class="col-lg-12 col-xs-12" style="margin-top:20px">
+              <table class="table table-bordered table-striped GridList" id="tbl_order">
+
+                  <tr>
+                      <td>
+                          Product
+                      </td>
+                      <td>
+                          Qty
+                      </td>
+                      <td>Rate</td>
+                      <td>
+                          Amount
+                      </td>
+                      <td>
+                          <a href="url" class="glyphicon glyphicon-plus" disabled></a>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <select class="form-control col-sm-2" required name="ddl_order" (change)="change($event)" ngModel>
+
+                              <option *ngFor="let item of liProduct" [value]="item.id">{{item.name}}</option>
+                          </select>
+                      </td>
+                      <td>
+                          <input type="number"   class="form-control" required name="txt_qty_order"  (blur)="changeQty($event)" ngModel/>
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" name="txt_rate_order"  ngModel/>
+                    </td>
+                      <td>
+                          <input type="text" class="form-control" name="txt_amount_order"   ngModel/>
+                      </td>
+
+                      <td>
+                          <a href="#" class="glyphicon glyphicon-remove" id="a_remove_order" style="color: red;"></a>
+                      </td>
+                  </tr>
+              </table>
+          </div>
+
+          <div class="col-lg-6 col-xs-6 col-lg-offset-7 col-xs-offset-7" style="margin-top:20px">
+              <div class="row">
+                  <div class="col-lg-4 col-xs-4">
+                      <label>Gross Amount</label>
+                  </div>
+                  <div class="col-lg-6 col-xs-6">
+                      <input type="text" class="form-control" name="txt_amount2_order" value=""
+                          ngModel >
+                          <!-- [disabled]=true -->
+                  </div>
+              </div>
+
+              <div class="row" style="margin-top:10px">
+                  <div class="col-lg-4 col-xs-4">
+                      <label id="lbl_vat_1">Vat 9%</label>
+                  </div>
+                  <div class="col-lg-6 col-xs-6">
+                      <input type="text" class="form-control" name="txt_vat_order"  ngModel>
+                  </div>
+              </div>
+
+
+
+
+              <div class="row" style="margin-top:10px">
+                  <div class="col-lg-4 col-xs-4">
+                      <label>Discount</label>
+                  </div>
+                  <div class="col-lg-6 col-xs-6">
+                      <input type="number" (keyup.enter)="descount($event)" class="form-control" placeholder="Discount" name="txt_disc_order" ngModel >
+                  </div>
+              </div>
+
+              <div class="row" style="margin-top:10px">
+                  <div class="col-lg-4 col-xs-4">
+                      <label>Net Amount</label>
+                  </div>
+                  <div class="col-lg-6 col-xs-6">
+                      <input type="text" class="form-control" name="txt_netAmount_order"   ngModel>
+                  </div>
+              </div>
+
+
+
+          </div>
+
+      <div class="col-lg-4">
+          <input type="button" value="Creat Order" id="btn_creat_order" class="btn btn-primary" (click)="save()"/>
+          <input type="button" routerLink="/home/manageorder" value="Back" id="btn_back_order" class="btn btn-default" style="margin-left: 10px;"/>
+
+      </div></form>
+  </div>
+
+</div>
