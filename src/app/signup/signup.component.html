@@ -1,70 +1,26 @@
-<div class="login col-sm-6 col-sm-offset-3">
-  <div class="row"  *ngIf="isAlert">
-    <div class="col-lg-12 col-xs-4" >
-        <div class="alert" [ngClass]="isSucceed==true?'alert-success':'alert-danger'">
-            <a  class="close" data-dismiss="alert">&times;</a>
-            {{message}}
-
-        </div>
-    </div>
-</div>
-  <div class="account-login">
-    <div class="col-lg-12 col-xs-12 containerHeader" style="font-size: 20px;text-align: center;">Sign Up</div>
-
-<form #form="ngForm">
-
-  <div class="row">
-      <div class="col-xs-12">
+<div class="login">
+	<div class="account-login">
+	   <h1>Sign Up</h1>
+	   <form #form="ngForm" class="login-form">
+        <div class="form-group">
+			<label for="pop_txt_name">Name</label>
+            <input type="text" name="name"  class="form-control" ngModel>
+         </div>
+		  <div class="form-group">
+			<label for="pop_txt_name" style="margin-top: 20px;">Username</label>
+			 <input type="text" name="username" class="form-control" ngModel>
+		  </div>
           <div class="form-group">
-              <label class="control-label">Name </label>
-              <input type="text" name="name" class="form-control" placeholder="Entet your name" ngModel/>
+			<label for="pop_txt_name" style="margin-top: 20px;">Email</label>
+            <input type="text" name="email"  class="form-control" ngModel>
+         </div>
+		  <div class="form-group">
+			<label for="pop_txt_name" style="margin-top: 20px;">Password</label>
+			 <input type="password" name="password"  class="form-control" ngModel>
+		  </div>
 
-          </div>
-      </div>
-  </div>
-
-  <div class="row">
-      <div class="col-xs-12">
-          <div class="form-group">
-              <label class="control-label">Username</label>
-              <input type="text" name="username" class="form-control" required placeholder="Entet your user name" ngModel/>
-
-          </div>
-      </div>
-  </div>
-
-  <div class="row">
-      <div class="col-xs-12">
-          <div class="form-group">
-              <label class="control-label">Email</label>
-              <input type="email" name="email" class="form-control" required  placeholder="Entet your Email" ngModel/>
-
-          </div>
-      </div>
-  </div>
-
-  <div class="row">
-      <div class="col-xs-12">
-          <div class="form-group">
-              <label class="control-label">Password</label>
-              <input type="password" class="form-control" name="password" required placeholder="Entet your password" ngModel/>
-              <!-- <p><a routerLink="/">Already have an account?</a></p> -->
-          </div>
-      </div>
-
-  </div>
-  <div class="remember">
-    <label class="custom-checkbox">
-      <p>Already have an account?<a routerLink="/">LogIn</a></p>
-      <span class="checkmark"></span>
-    </label>
-    <a href="#" class="pull-right"><input type="submit" value="Create Account" (click)="signUp()"  class="btn btn-primary" /></a>
-
-  </div>
-
-
-
-
-</form>
-  </div>
+         <button class="btn" (click)="signUp()">Sign Up</button>
+		 <p>do you have an account?<a routerLink="/">Login</a></p>
+	   </form>
+	</div>
 </div>
